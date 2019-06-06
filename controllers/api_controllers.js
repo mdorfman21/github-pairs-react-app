@@ -15,11 +15,14 @@ module.exports = function(app) {
   app.get("/prices", (req, res) => {
     const symbol = req.body.symbol;
     const days = req.body.days;
+    const start = req.body.start;
+    const end = req.body.end;
     alpaca
       .getBars("day", symbol, {
         limit: days,
-        start: "2019-4-5",
-        end: "2019-4-10"
+        //start and end format = YYYY-M-D
+        start: start,
+        end: end
       })
       .then(barset => {
         console.log(barset);
@@ -30,6 +33,8 @@ module.exports = function(app) {
           stats.dayClose = day.c;
           stats.dayOpen = day.o;
           stats.volume = day.v;
+          stats.dayHigh = day.h;
+          stats.dayLow = day.l;
           statsArray.push(stats);
         });
 

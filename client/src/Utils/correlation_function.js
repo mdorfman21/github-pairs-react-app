@@ -1,5 +1,5 @@
-module.exports = function(firstStock, secondStock) {
-  let correlation = function(firstStock, secondStock) {
+const correlationObject = function() {
+  const correlate = function(firstStock, secondStock) {
     //the price histories are going to be in an array
     let xHistory = firstStock.priceHistory;
     let yHistory = secondStock.priceHistory;
@@ -8,7 +8,6 @@ module.exports = function(firstStock, secondStock) {
 
     const numerator = calcNumerator(xHistory, yHistory, xMean, yMean);
     const denominator = calcDenominator(xHistory, yHistory, xMean, yMean);
-
     const coefficient = numerator / denominator;
     return coefficient;
   };
@@ -40,3 +39,5 @@ module.exports = function(firstStock, secondStock) {
     return square;
   };
 };
+
+export default correlationObject;
