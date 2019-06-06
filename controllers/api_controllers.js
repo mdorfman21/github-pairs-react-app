@@ -1,4 +1,3 @@
-const correlation = require("./correlation_function");
 const moment = require("moment");
 const stockSymbol = require("../models/stockSymbol");
 moment().format();

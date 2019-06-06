@@ -7,7 +7,7 @@ export function Input(props) {
         onChange={props.onInputChange}
         name="search"
         type="text"
-        placeholder="Enter company for news"
+        placeholder={props.placeholder}
       />
     </div>
   );
